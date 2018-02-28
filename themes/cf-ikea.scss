@@ -1,0 +1,114 @@
+@import "conversational-form/src/styles/mixins/cf-mixins";
+
+/*
+    Globals
+*/
+$cf-base-font-size: 14px;
+
+$cf-color-background: #ffffff !default;
+$cf-color-primary: #0D83FF !default;
+$cf-color-secondary: #acb2b6 !default;
+$cf-color-error: #fe8d84 !default;
+
+$cf-font-family: 'Verdana',Helvetica,Arial,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif !default;
+
+$cf-breakpoint-medium: relativeValue(1268) !default;
+
+$cf-anim-time: 1.1s;
+$cf-ease-easeIn: cubic-bezier(0.550, 0.055, 0.675, 0.190) !default;
+$cf-ease-easeOut: cubic-bezier(0.215, 0.610, 0.355, 1.000) !default;
+$cf-ease-easeInOut: cubic-bezier(0.645, 0.045, 0.355, 1.000) !default;
+$cf-ease-easeOutBack: cubic-bezier(0.175,  0.885, 0.320, 1.275) !default;
+
+/*
+    Response
+*/
+$cf-chat-response-font-size: $cf-base-font-size !default;
+$cf-chat-response-border-radius: relativeValue(15px) !default;
+
+$cf-color-chat-response-default-text: #222222;
+$cf-color-chat-response-default-bg: #f2f2f2;
+
+$cf-color-chat-response-user-text: #fff;
+$cf-color-chat-response-user-bg: #0058AC;
+
+$cf-avatar-area: 0;
+$cf-avatar-background: none !default;
+
+/*
+    Input
+*/
+$cf-color-input-text: $cf-color-chat-response-user-bg;
+$cf-input-field-height: 35px; //relativeValue(35px) !default;
+$cf-input-field-border-radius: relativeValue(15px);
+$cf-input-submit-background: $cf-color-chat-response-user-bg;
+$cf-input-icon-color: #fff;
+$cf-input-font-size: $cf-base-font-size !default;
+
+$cf-input-color-error-text: $cf-color-error !default;
+$cf-input-color-error-bg: lighten($cf-color-error, 20%) !default;
+
+
+
+@import "conversational-form/src/styles/conversational-form";
+
+.conversational-form {
+	-webkit-font-smoothing: antialiased;
+
+	cf-chat-response {
+		max-width: 60% !important;
+		padding-top: 10px;
+		text > p {
+			padding: 8px 14px;
+		}
+	}
+
+	cf-chat scrollable {
+		height: 100%;
+		&::-webkit-scrollbar {
+			width: 0px;
+		}
+	}
+
+	cf-chat-response text > p:not(:only-child):not(:first-child) {
+		margin-top: 2px;
+	}
+
+	cf-input-control-elements span {
+		color: #222;
+		.cf-button {
+			background: #f2f2f2;
+		}
+	}
+
+	cf-input-button.cf-input-button {
+		height: 26px;
+		width: 26px;
+		bottom: 4px;
+		right: 6px;
+		border: none;
+
+		div.cf-icon-progress {
+			background-size: 22px;
+		}
+	}
+
+	cf-input textarea {
+		background: #E6EDF3;
+		padding: 8px 14px;
+
+		&::placeholder {
+			color: #0058AC;
+		}
+	}
+
+	cf-input input:focus, cf-input input:active, cf-input textarea:focus, cf-input textarea:active {
+		box-shadow: none;
+	}
+
+
+	cf-radio-button.cf-button:hover cf-radio, cf-radio-button.cf-button.highlight cf-radio, cf-radio-button.cf-button:focus cf-radio {
+    background: darken(#0058AC, 10%);
+	}
+
+}

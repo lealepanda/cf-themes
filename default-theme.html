@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		html,body { border: 0; margin: 0; }
+		#cf-context {
+			height: 600px;
+			width: 400px;
+			border: 2px solid #999;
+		}
+	</style>
+	<link rel="stylesheet" href="build/cf-default.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@latest/dist/conversational-form.min.js" crossorigin></script>
+</head>
+<body>
+	<h4>DEFAULT</h4>
+	<form id="form">
+	  <label for="radio">
+	    <input cf-questions="Hi friend. Ready to signup for our demo newsletter?" cf-label="Yes, let's begin!" type="radio" value="0">
+	    Start
+	  </label>
+	  <input type="text" name="FNAME" cf-questions="What is your firstname?">
+	  <input type="text" name="LNAME" cf-questions="What is your lastname?">
+	  <input type="text" name="EMAIL" cf-questions="What is your email?">
+	</form>
+	<div id="cf-context" role="cf-context" cf-context></div>
+
+	<script type="text/javascript">
+		window.onload = function() {
+		  var conversationalForm = window.cf.ConversationalForm.startTheConversation({
+		    formEl: document.getElementById("form"),
+		    context: document.getElementById("cf-context"),
+		    loadExternalStyleSheet: false, // BECAUSE WE ARE LOADING OUR OWN IN HEAD
+		    submitCallback: function() {
+		     conversationalForm.addRobotChatResponse("Alright, you are done."); 
+		    }
+		  });
+		};
+	</script>
+</body>
+</html>

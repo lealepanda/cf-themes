@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		html,body { border: 0; margin: 0; }
+		#cf-context {
+			height: 440px;
+			width: 375px;
+			border: 2px solid #999;
+		}
+	</style>
+	<link rel="stylesheet" href="build/cf-ikea.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/space10-community/conversational-form@latest/dist/conversational-form.min.js" crossorigin></script>
+</head>
+<body>
+	<h4>IKEA</h4>
+	<form id="form">
+
+		<input cf-questions="Hi dear friend&&What's your IKEA email?&&SKrrrrttttt" type="text" name="email">
+
+		<fieldset>
+			<label for="occupation">Occupation</label>
+			<div class="radio">
+			<label>
+				<input cf-questions="And you are?" type="radio" name="occupation" id="occupation-1" value="developer">
+				Developer
+			</label>
+			</div>
+			<div class="radio">
+			<label>
+				<input type="radio" name="occupation" id="occupation-2" value="designer">
+				Designer
+			</label>
+			</div>
+			<div class="radio">
+			<label>
+				<input type="radio" name="occupation" id="occupation-3" value="curious-mind">
+				Curious mind
+			</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="occupation" id="occupation-2" value="lost">
+					Lost cause
+				</label>
+			</div>
+		</fieldset>
+
+	  <label for="radio">
+	    <input cf-questions="Hi friend. Ready to signup for our demo newsletter?" cf-label="Yes, let's begin!" type="radio" value="0">
+	    Start
+	  </label>
+	  <input type="text" name="FNAME" cf-questions="What is your firstname?">
+	  <input type="text" name="LNAME" cf-questions="What is your lastname?">
+	  <input type="text" name="EMAIL" cf-questions="What is your email?" pattern=".+\@.+\..+" cf-error="E-mail not correct">
+	</form>
+	<div id="cf-context" role="cf-context" cf-context></div>
+
+	<script type="text/javascript">
+		window.onload = function() {
+		  var conversationalForm = window.cf.ConversationalForm.startTheConversation({
+		    formEl: document.getElementById("form"),
+		    context: document.getElementById("cf-context"),
+		    loadExternalStyleSheet: false, // BECAUSE WE ARE LOADING OUR OWN IN HEAD
+		    submitCallback: function() {
+		     conversationalForm.addRobotChatResponse("Alright, you are done."); 
+		    }
+		  });
+		};
+	</script>
+</body>
+</html>
